@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-section {
+            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(16px) saturate(180%);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+    <!-- Navigation Bar -->
+    <nav class="w-full bg-white shadow-lg fixed top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold text-gray-800">Library Management</div>
+                <div class="flex space-x-4">
+                    <a href="/" class="text-gray-700 hover:text-pink-500">Home</a>
+                    <a href="/signup" onclick="showalert()" text-gray-700 hover:text-pink-500">Books</a>
+                    <a href="/signup" onclick="showalert()" class="text-gray-700 hover:text-pink-500">Categories</a>
+                    <a href="/signup" class="text-gray-700 hover:text-pink-500">SignUp</a>
+                    <a href="/login"  class="text-gray-700 hover:text-pink-500">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section rounded-2xl shadow-2xl p-8 w-full max-w-4xl mt-20">
+        <div class="text-center mb-10">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">Welcome to Our Library</h1>
+            <p class="text-gray-500">Explore a world of knowledge and imagination.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Featured Books -->
+            <div class="feature-card bg-white rounded-lg p-6 shadow-md">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Featured Books</h2>
+                <p class="text-gray-600">Discover our latest collection of books.</p>
+                <a href="#" class="mt-4 inline-block text-pink-500 hover:underline">View All</a>
+            </div>
+
+            <!-- Categories -->
+            <div class="feature-card bg-white rounded-lg p-6 shadow-md">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Categories</h2>
+                <p class="text-gray-600">Browse books by category.</p>
+                <a href="#" class="mt-4 inline-block text-pink-500 hover:underline">Explore</a>
+            </div>
+
+            <!-- User Actions -->
+            <div class="feature-card bg-white rounded-lg p-6 shadow-md">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">User Actions</h2>
+                <p class="text-gray-600">Manage your account and borrowings.</p>
+                <a href="#" class="mt-4 inline-block text-pink-500 hover:underline">My Account</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w-full bg-white shadow-lg mt-10">
+        <div class="max-w-6xl mx-auto px-4 py-6">
+            <div class="text-center text-gray-600">
+                &copy; 2023 Library Management System. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script>
+        function showalert(){
+            alert("Please Sign Up before Using this Website");
+        }
+    </script>
+</body>
+</html>

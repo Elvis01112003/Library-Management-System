@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .signup-card {
+            animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(16px) saturate(180%);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .input-group {
+            transition: all 0.3s ease;
+        }
+
+        .input-group:focus-within {
+            transform: translateY(-2px);
+        }
+
+        .password-toggle {
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+    <div class="signup-card rounded-2xl shadow-2xl p-8 w-full max-w-md">
+        <div class="text-center mb-10">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">Create Account</h1>
+            <p class="text-gray-500">Join us today!</p>
+        </div>
+
+        <form class="space-y-6">
+            <div class="input-group">
+                <div class="relative">
+                    <input type="text" name="name" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 peer" placeholder=" ">
+                    <label for="name" class="absolute left-4 top-3 px-1 transition-all transform -translate-y-6 scale-75 text-gray-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-pink-500 bg-white">
+                        Full Name
+                    </label>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <div class="relative">
+                    <input type="email" name="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 peer" placeholder=" ">
+                    <label for="email" class="absolute left-4 top-3 px-1 transition-all transform -translate-y-6 scale-75 text-gray-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-pink-500 bg-white">
+                        Email Address
+                    </label>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <div class="relative">
+                    <input type="text" name="phone_no" id="phone_no" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 peer" placeholder=" ">
+                    <label for="phone_no" class="absolute left-4 top-3 px-1 transition-all transform -translate-y-6 scale-75 text-gray-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-pink-500 bg-white">
+                        Phone Number
+                    </label>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <div class="relative">
+                    <input type="password" name="password" id="password" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 peer" placeholder=" ">
+                    <label for="password" class="absolute left-4 top-3 px-1 transition-all transform -translate-y-6 scale-75 text-gray-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-pink-500 bg-white">
+                        Password
+                    </label>
+                    <span class="password-toggle absolute" onclick="togglePassword()">👁</span>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <div class="relative">
+                    <input type="password" id="confirm-password" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 peer" placeholder=" ">
+                    <label for="confirm-password" class="absolute left-4 top-3 px-1 transition-all transform -translate-y-6 scale-75 text-gray-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-pink-500 bg-white">
+                        Confirm Password
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-pink-400 text-white py-3 rounded-lg font-semibold hover:from-pink-600 hover:to-pink-500 transition-all transform hover:scale-[1.01] shadow-lg hover:shadow-pink-200">
+                Sign Up
+            </button>
+        </form>
+
+        <p class="text-center text-gray-600 mt-8">
+            Already have an account? <a href="/login" class="text-pink-500 font-semibold hover:underline">Sign In</a>
+        </p>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const confirmPasswordField = document.getElementById('confirm-password');
+            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordField.setAttribute('type', type);
+            confirmPasswordField.setAttribute('type', type);
+        }
+    </script>
+</body>
+</html>
